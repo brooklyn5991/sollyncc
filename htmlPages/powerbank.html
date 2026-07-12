@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Power Banks & Portable Power - SSComputers</title>
+    <!-- Link both the core global layout and the powerbank specific styling -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/stylespages/powerbank.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght=300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header / Navbar Section -->
+    <header class="main-header">
+        <div class="container navbar">
+            <a href="/index.html" class="logo">SS<span>COMPUTERS</span></a>
+            
+            <nav class="nav-links">
+                <a href="/index.html">Home</a>
+                <a href="/htmlPages/computer.html">Computer</a>
+                <a href="/htmlPages/camera.html">Cctv Camera</a>
+                <a href="/htmlPages/powerbank.html">PowerBank</a>
+                <a href="/htmlPages/solar.html">Solar</a>
+                <a href="/htmlPages/contact.html">Contact</a>
+            </nav>
+            
+            <div class="nav-icons">
+                <button aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button aria-label="Cart" class="cart-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mini Banner Category Header -->
+    <section class="category-banner">
+        <div class="container">
+            <span class="cat-subtitle">Portable Power</span>
+            <h1 class="cat-title">Cutting-Edge Power Banks</h1>
+            <p class="cat-desc">Never run out of juice on the move. Discover heavy-duty, high-capacity, fast-charging power packs engineered to keep your phones, tablets, and mobile gadgets up and running anywhere.</p>
+        </div>
+    </section>
+
+    <!-- PowerBank Inventory Section -->
+    <section class="inventory-section">
+        <div class="container">
+            
+            <!-- Category Filter Bar -->
+            <div class="filter-wrapper">
+                <button class="filter-btn active">All Power Banks</button>
+                <button class="filter-btn">High Capacity</button>
+                <button class="filter-btn">Fast Charging</button>
+                <button class="filter-btn">Compact Packs</button>
+            </div>
+
+            <!-- Main PowerBank Grid Layout -->
+            <div class="products-grid" id="powerbank-grid">
+                
+                <!-- PowerBank Item 1 -->
+                <div class="product-card" data-category="fast-charging">
+                    <div class="product-img-box">
+                        <span class="badge">PD 22.5W Fast</span>
+                        <img src="./images/homepage/powerbank.webp" alt="Cutting-Edge Power Bank" class="dashboard-img">
+                        <a href="https://api.whatsapp.com/send?phone=2349032107622" class="add-to-cart-overlay">Order via WhatsApp</a>
+                    </div>
+                    <div class="product-details">
+                        <h3>Cutting-Edge Power Banks</h3>
+                        <span class="price">Reliable Travel Companion</span>
+                    </div>
+                </div>
+
+                <!-- PowerBank Item 2 -->
+                <div class="product-card" data-category="high-capacity">
+                    <div class="product-img-box">
+                        <span class="badge">50,000 mAh</span>
+                        <img src="./images/powerbank/heavy_duty.jpg" alt="Heavy Duty Power Bank" class="dashboard-img">
+                        <a href="https://api.whatsapp.com/send?phone=2349032107622" class="add-to-cart-overlay">Order via WhatsApp</a>
+                    </div>
+                    <div class="product-details">
+                        <h3>Mega Capacity Power Station Bank</h3>
+                        <span class="price">₦35,000</span>
+                    </div>
+                </div>
+
+                <!-- PowerBank Item 3 -->
+                <div class="product-card" data-category="compact">
+                    <div class="product-img-box">
+                        <span class="badge">Ultra Slim</span>
+                        <img src="./images/powerbank/compact_slim.jpg" alt="Slim Power Bank" class="dashboard-img">
+                        <a href="https://api.whatsapp.com/send?phone=2349032107622" class="add-to-cart-overlay">Order via WhatsApp</a>
+                    </div>
+                    <div class="product-details">
+                        <h3>Pocket-Sized 10,000mAh Smart Pack</h3>
+                        <span class="price">₦15,000</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="logo">SS<span>COMPUTERS</span></a>
+                <p class="footer-desc">Providing high-performance computers, state-of-the-art surveillance systems, and robust renewable solar electricity frameworks.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Main Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="computer.html">Computer</a></li>
+                    <li><a href="camera.html">Cctv Camera</a></li>
+                    <li><a href="powerbank.html">PowerBank</a></li>
+                    <li><a href="solar.html">Solar</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Social</h4>
+                <p class="contact-item" style="margin-bottom: 15px;">You can reach me directly on my active social handles:</p>
+                <a href="https://api.whatsapp.com/send?phone=2349032107622" class="btn-primary" style="padding: 10px 20px; font-size: 12px;">Chat on WhatsApp</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p class="contact-item"><strong>Call/WA:</strong> +234 903 210 7622</p>
+                <p class="contact-item">Assorted tech setups always available.</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>Copyright &copy; 2026 Solcynsolarcomputers. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CCTV Security Systems - SSComputers</title>
+    <!-- Link both the core global layout and the camera specific styling -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="/stylespages/camera.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header / Navbar Section -->
+    <header class="main-header">
+        <div class="container navbar">
+            <a href="/index.html" class="logo">SS<span>COMPUTERS</span></a>
+            
+            <nav class="nav-links">
+                <a href="/index.html">Home</a>
+                <a href="/htmlPages/computer.html">Computer</a>
+                <a href="/htmlPages/camera.html">Cctv Camera</a>
+                <a href="/htmlPages/powerbank.html">PowerBank</a>
+                <a href="/htmlPages/solar.html">Solar</a>
+                <a href="/htmlPages/contact.html">Contact</a>
+            </nav>
+            
+            <div class="nav-icons">
+                <button aria-label="Search">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button aria-label="Cart" class="cart-btn">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mini Banner Category Header -->
+    <section class="category-banner">
+        <div class="container">
+            <span class="cat-subtitle">Surveillance & Security</span>
+            <h1 class="cat-title">Advanced CCTV Solutions</h1>
+            <p class="cat-desc">Protect what matters most. Explore high-definition, smart night-vision surveillance systems equipped with real-time mobile tracking and remote control monitoring.</p>
+        </div>
+    </section>
+
+    <!-- CCTV Inventory Management Section -->
+    <section class="inventory-section">
+        <div class="container">
+            
+            <!-- Category Filter Bar -->
+            <div class="filter-wrapper">
+                <button class="filter-btn active">All Systems</button>
+                <button class="filter-btn">Indoor Cams</button>
+                <button class="filter-btn">Outdoor Bullet</button>
+                <button class="filter-btn">PTZ Smart Cams</button>
+                <button class="filter-btn">Complete Setup Kits</button>
+            </div>
+
+            <!-- Main CCTV Grid Layout -->
+            <div class="products-grid" id="camera-grid">
+                
+                <!-- CCTV Item 1 -->
+                <div class="product-card" data-category="outdoor">
+                    <div class="product-img-box">
+                        <span class="badge">4K Ultra HD</span>
+                        <img src="./images/homepage/cctv.webp" alt="Advanced CCTV Solutions" class="dashboard-img">
+                        <a href="https://api.whatsapp.com/send?phone=2349032107622" class="add-to-cart-overlay">Order via WhatsApp</a>
+                    </div>
+                    <div class="product-details">
+                        <h3>Advanced CCTV Security Solutions</h3>
+                        <span class="price">Premium Quality</span>
+                    </div>
+                </div>
+
+                <!-- CCTV Item 2 -->
+                <div class="product-card" data-category="ptz">
+                    <div class="product-img-box">
+                        <span class="badge">Wifi Smart</span>
+                        <img src="./images/camera/ptz_smart.jpg" alt="PTZ Smart Camera" class="dashboard-img">
+                        <a href="https://api.whatsapp.com/send?phone=2349032107622" class="add-to-cart-overlay">Order via WhatsApp</a>
+                    </div>
+                    <div class="product-details">
+                        <h3>360° Wireless PTZ Smart Camera</h3>
+                        <span class="price">₦35,000</span>
+                    </div>
+                </div>
+
+                <!-- CCTV Item 3 -->
+                <div class="product-card" data-category="kits">
+                    <div class="product-img-box">
+                        <span class="badge">Full Package</span>
+                        <img src="./images/camera/cctv_kit.jpg" alt="Complete 4-Cam Kit" class="dashboard-img">
+                        <a href="https://api.whatsapp.com/send?phone=2349032107622" class="add-to-cart-overlay">Order via WhatsApp</a>
+                    </div>
+                    <div class="product-details">
+                        <h3>Complete 4-Channel DVR Surveillance Kit</h3>
+                        <span class="price">Contact for Quote</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Area -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-col brand-col">
+                <a href="index.html" class="logo">SS<span>COMPUTERS</span></a>
+                <p class="footer-desc">Providing high-performance computers, state-of-the-art surveillance systems, and robust renewable solar electricity frameworks.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Main Menu</h4>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="computer.html">Computer</a></li>
+                    <li><a href="camera.html">Cctv Camera</a></li>
+                    <li><a href="powerbank.html">PowerBank</a></li>
+                    <li><a href="solar.html">Solar</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>Get Social</h4>
+                <p class="contact-item" style="margin-bottom: 15px;">You can reach me directly on my active social handles:</p>
+                <a href="https://api.whatsapp.com/send?phone=2349032107622" class="btn-primary" style="padding: 10px 20px; font-size: 12px;">Chat on WhatsApp</a>
+            </div>
+            <div class="footer-col">
+                <h4>Contact Info</h4>
+                <p class="contact-item"><strong>Call/WA:</strong> +234 903 210 7622</p>
+                <p class="contact-item">Assorted tech setups always available.</p>
+            </div>
+        </div>
+        <div class="container footer-bottom">
+            <p>Copyright &copy; 2026 Solcynsolarcomputers. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
