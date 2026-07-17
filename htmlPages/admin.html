@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - SSComputers</title>
+    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../stylespages/admin.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container navbar">
+            <a href="../index.html" class="logo">SS<span>COMPUTERS</span></a>
+            <nav class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="computer.html">Computer</a>
+                <a href="camera.html">CCTV Camera</a>
+                <a href="powerbank.html">PowerBank</a>
+                <a href="solar.html">Solar</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="admin-shell">
+        <section class="container admin-grid">
+            <div id="loginPanel" class="panel login-panel">
+                <div class="panel-heading">
+                    <p class="panel-kicker">Admin access</p>
+                    <h1>Login to manage products</h1>
+                    <p class="panel-copy">Use your admin username and password to continue.</p>
+                </div>
+
+                <form id="loginForm" class="admin-form">
+                    <label>
+                        Admin email
+                        <input type="email" id="adminUsername" placeholder="you@example.com" autocomplete="email" required>
+                    </label>
+
+                    <label>
+                        Password
+                        <input type="password" id="adminPassword" placeholder="Enter password" autocomplete="current-password" required>
+                    </label>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Login</button>
+                    </div>
+                </form>
+            </div>
+
+            <div id="adminContent" class="panel form-panel" style="display:none;">
+                <div class="panel-heading">
+                    <p class="panel-kicker">Inventory</p>
+                    <h1 id="form-title">Add a product</h1>
+                    <p class="panel-copy">Upload an image, set pricing, and publish products to your Supabase database.</p>
+                </div>
+
+                <form id="product-form" class="admin-form" novalidate>
+                    <input type="hidden" id="productId" name="productId">
+
+                    <label>
+                        Product name
+                        <input type="text" id="name" name="name" placeholder="e.g. Dell Latitude 7420" required>
+                    </label>
+
+                    <label>
+                        Description
+                        <textarea id="description" name="description" rows="4" placeholder="Short product description"></textarea>
+                    </label>
+
+                    <div class="form-row">
+                        <label>
+                            Price (₦)
+                            <input type="number" id="price" name="price" min="0" step="1000" required>
+                        </label>
+
+                        <label>
+                            Brand
+                            <input type="text" id="brand" name="brand" placeholder="Dell">
+                        </label>
+                    </div>
+
+                    <div class="form-row">
+                        <label>
+                            Category
+                            <select id="category" name="category" required>
+                                <option value="computer">Computer</option>
+                                <option value="camera">Camera</option>
+                                <option value="powerbank">PowerBank</option>
+                                <option value="solar">Solar</option>
+                            </select>
+                        </label>
+
+                        <label class="checkbox-row">
+                            <input type="checkbox" id="inStock" name="inStock" checked>
+                            <span>Available in stock</span>
+                        </label>
+                    </div>
+
+                    <label>
+                        Product image file
+                        <input type="file" id="imageFile" name="imageFile" accept="image/*">
+                    </label>
+
+                    <label>
+                        Or image URL
+                        <input type="url" id="imageUrl" name="imageUrl" placeholder="https://example.com/image.jpg">
+                    </label>
+
+                    <div id="imagePreviewBox" class="image-preview-box">
+                        <p>No image selected yet.</p>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">Save product</button>
+                        <button type="button" id="resetBtn" class="btn-secondary">Reset</button>
+                    </div>
+                </form>
+                <p id="formStatus" class="status-message" aria-live="polite"></p>
+
+            </div>
+
+            <div class="panel list-panel" style="display:none;">
+                <div class="panel-heading">
+                    <p class="panel-kicker">Products</p>
+                    <h2>Current inventory</h2>
+                </div>
+
+                <div id="statusMessage" class="status-message">Loading products...</div>
+                <div id="productList" class="product-list"></div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="../js/admin.js?v=20260717-save-feedback"></script>
+</body>
+</html>
