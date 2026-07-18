@@ -366,11 +366,37 @@ button {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        height: 68px;
+    }
+    .container {
+        padding: 0 18px;
+    }
     .nav-links {
-        display: none; /* Can be enhanced with JS mobile expansion */
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 12px 18px 18px;
+        flex-direction: column;
+        gap: 2px;
+        background-color: rgba(255, 255, 255, 0.98);
+        border-bottom: 1px solid #f0f0f0;
+        box-shadow: 0 10px 18px rgba(0, 0, 0, 0.08);
+    }
+    .nav-links.is-open {
+        display: flex;
+    }
+    .nav-links a {
+        padding: 10px 6px;
+        font-size: 16px;
     }
     .mobile-menu-toggle {
         display: block;
+        width: 40px;
+        height: 40px;
+        color: var(--color-text-main);
     }
     .services-grid {
         grid-template-columns: 1fr;
