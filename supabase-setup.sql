@@ -1,6 +1,32 @@
 -- Run this once in Supabase Dashboard → SQL Editor.
--- First create the admin user in Authentication → Users, then use that email
--- and password at /htmlPages/admin.html.
+-- Create the admin auth user in Authentication → Users with the email below,
+-- then create the username/password record matching the admin login page.
+
+create table if not exists public.admin_users (
+  id uuid primary key default gen_random_uuid(),
+  username text not null unique,
+  email text not null unique,
+  password text not null,
+  created_at timestamptz not null default now()
+);
+
+alter table public.admin_users enable row level security;
+
+grant usage on schema public to anon, authenticated;
+grant select on public.admin_users to authenticated;
+grant insert, update, delete on public.admin_users to authenticated;
+
+drop policy if exists "Authenticated users can view admin credentials" on public.admin_users;
+create policy "Authenticated users can view admin credentials" on public.admin_users
+  for select to authenticated using (true);
+
+drop policy if exists "Authenticated users manage admin credentials" on public.admin_users;
+create policy "Authenticated users manage admin credentials" on public.admin_users
+  for all to authenticated using (true) with check (true);
+
+insert into public.admin_users (username, email, password)
+values ('admin', 'admin@sollyncc.local', 'admin123')
+on conflict (username) do nothing;
 
 create table if not exists public.products (
   id uuid primary key default gen_random_uuid(),

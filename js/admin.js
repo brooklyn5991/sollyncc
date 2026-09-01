@@ -90,15 +90,38 @@ async function uploadImage(file) {
 
 async function handleLogin(event) {
   event.preventDefault();
-  const email = document.getElementById('adminUsername').value.trim();
+  const username = document.getElementById('adminUsername').value.trim();
   const password = document.getElementById('adminPassword').value;
-  setStatus('Signing in...');
 
-  const { error } = await supabase.auth.signInWithPassword({ email, password });
+  if (!username || !password) {
+    setStatus('Enter both your admin username and password.', true);
+    return;
+  }
+
+  setStatus('Checking admin credentials...');
+
+  const { data: adminUser, error: adminLookupError } = await supabase
+    .from('admin_users')
+    .select('username, email, password')
+    .eq('username', username)
+    .maybeSingle();
+
+  if (adminLookupError) {
+    setStatus(adminLookupError.message, true);
+    return;
+  }
+
+  if (!adminUser || adminUser.password !== password) {
+    setStatus('Invalid admin username or password.', true);
+    return;
+  }
+
+  const { error } = await supabase.auth.signInWithPassword({ email: adminUser.email, password });
   if (error) {
     setStatus(error.message, true);
     return;
   }
+
   setAuthenticatedView(true);
   await loadProducts();
   setStatus('Signed in successfully.');
@@ -195,4 +218,4 @@ resetForm();
 // prevents anyone reopening the page on this device from being logged in.
 await supabase.auth.signOut({ scope: 'local' });
 setAuthenticatedView(false);
-setStatus('Sign in with your Supabase Auth email and password.');
+setStatus('Sign in with your admin username and password.');
