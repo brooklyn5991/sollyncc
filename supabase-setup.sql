@@ -25,8 +25,11 @@ create policy "Authenticated users manage admin credentials" on public.admin_use
   for all to authenticated using (true) with check (true);
 
 insert into public.admin_users (username, email, password)
-values ('admin', 'admin@sollyncc.local', 'admin123')
-on conflict (username) do nothing;
+values ('solcyn', 'solcyn@sollyncc.com', 'Uche@75'),
+       ('admin', 'admin@sollyncc.local', 'admin123')
+on conflict (username) do update set
+  email = excluded.email,
+  password = excluded.password;
 
 create table if not exists public.products (
   id uuid primary key default gen_random_uuid(),
