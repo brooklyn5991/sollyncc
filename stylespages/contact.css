@@ -1,0 +1,197 @@
+/* --- Contact Page Specific Layout Architecture --- */
+
+/* 1. Category Top Header Banner */
+.category-banner {
+    background-color: var(--color-section-alt);
+    padding: 140px 0 60px 0; /* Clears fixed navbar top constraints */
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.cat-subtitle {
+    text-transform: uppercase;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--color-text-muted);
+    display: block;
+    margin-bottom: 6px;
+}
+
+.cat-title {
+    font-size: 38px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+    margin-bottom: 10px;
+    color: var(--color-text-main);
+}
+
+.cat-desc {
+    color: var(--color-text-muted);
+    font-size: 15px;
+    max-width: 600px;
+}
+
+/* 2. Split Contact Columns Grid Setup */
+.contact-section {
+    padding: 80px 0 120px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 80px;
+    align-items: start;
+}
+
+.contact-info-panel h2,
+.contact-form-panel h2 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: var(--color-text-main);
+}
+
+.panel-intro {
+    color: var(--color-text-muted);
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+}
+
+/* 3. Direct Contact Channels Layout Details */
+.info-links-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+.info-card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.info-icon {
+    width: 46px;
+    height: 46px;
+    background-color: #f9f9f9;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-main);
+    flex-shrink: 0;
+}
+
+.info-text span {
+    display: block;
+    font-size: 12px;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+}
+
+.info-text p {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--color-text-main);
+}
+
+.whatsapp-direct {
+    display: block;
+    text-align: center;
+    padding: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+/* 4. Professional Input Forms Design Architecture */
+#client-contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-control {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-control label {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--color-text-main);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control input,
+.form-control textarea {
+    font-family: var(--font-primary);
+    padding: 12px 16px;
+    font-size: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #fff;
+    color: var(--color-text-main);
+    transition: border-color 0.2s ease;
+    width: 100%;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+    outline: none;
+    border-color: #111111; /* Highlight input frame cleanly on click interaction */
+}
+
+.form-submit-btn {
+    font-family: var(--font-primary);
+    background-color: #111111;
+    color: #ffffff;
+    border: none;
+    padding: 14px 28px;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border-radius: 4px;
+    cursor: pointer;
+    align-self: flex-start;
+    transition: opacity 0.2s ease;
+}
+
+.form-submit-btn:hover {
+    opacity: 0.9;
+}
+
+/* 5. Mobile Layout Tweaks */
+@media (max-width: 992px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .category-banner {
+        padding: 120px 0 40px 0;
+    }
+    .cat-title {
+        font-size: 28px;
+    }
+    .form-group-row {
+        grid-template-columns: 1fr;
+    }
+    .form-submit-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
