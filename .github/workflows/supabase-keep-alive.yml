@@ -1,23 +1,20 @@
-name: Keep Supabase Alive
+name: Supabase Keep Alive
 
 on:
   schedule:
-    - cron: "0 0 * * 0"
+    # Runs every 3 days at 00:00 UTC
+    - cron: '0 0 */3 * *'
   workflow_dispatch:
 
 jobs:
-  keep-alive:
+  ping:
     runs-on: ubuntu-latest
     steps:
-      - name: Ping Supabase
+      - name: Ping Supabase Database
         env:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
         run: |
-          curl --fail-with-body --silent --show-error \
-            --retry 3 \
-            --connect-timeout 10 \
-            --max-time 30 \
+          curl -i -X GET "${SUPABASE_URL}/rest/v1/" \
             -H "apikey: ${SUPABASE_ANON_KEY}" \
-            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}" \
-            "${SUPABASE_URL}/rest/v1/products?select=id&limit=1"
+            -H "Authorization: Bearer ${SUPABASE_ANON_KEY}"
