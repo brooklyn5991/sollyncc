@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Reviews | SSComputers</title>
+    <link rel="stylesheet" href="style.css?v=reviews-page-1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="main-header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">SS<span>COMPUTERS</span></a>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="/htmlPages/computer.html">Computer</a>
+                <a href="/htmlPages/camera.html">Cctv Camera</a>
+                <a href="/htmlPages/powerbank.html">PowerBank</a>
+                <a href="/htmlPages/solar.html">Solar</a>
+                <a href="index.html#reviews" class="active">Reviews</a>
+                <a href="/htmlPages/contact.html">Contact</a>
+            </nav>
+            <div class="nav-icons">
+                <button class="mobile-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="reviews-section reviews-page-section">
+            <div class="container">
+                <div class="section-header center-text">
+                    <span class="hero-subtitle">Customer Stories</span>
+                    <h1>All Reviews</h1>
+                    <p class="section-subtitle">Feedback from customers who chose Solcynsolarcomputers.</p>
+                </div>
+                <div class="reviews-shell">
+                    <div class="reviews-list-panel">
+                        <div class="panel-heading">
+                            <span>Every Review</span>
+                            <h2>What our customers are saying</h2>
+                        </div>
+                        <div id="reviewsList" class="reviews-list" aria-live="polite"></div>
+                        <div class="review-back-wrap">
+                            <a href="index.html#reviews" class="btn-underline">Back to homepage</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script type="module" src="script.js?v=reviews-page-1"></script>
+</body>
+</html>

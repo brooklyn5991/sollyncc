@@ -72,3 +72,24 @@ create policy "Anyone can view product images" on storage.objects
 drop policy if exists "Authenticated users manage product images" on storage.objects;
 create policy "Authenticated users manage product images" on storage.objects
   for all to authenticated using (bucket_id = 'product-images') with check (bucket_id = 'product-images');
+
+create table if not exists public.customer_reviews (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  name text not null,
+  phone text not null,
+  review text not null
+);
+
+alter table public.customer_reviews enable row level security;
+
+grant usage on schema public to anon, authenticated;
+grant select, insert on public.customer_reviews to anon, authenticated;
+
+drop policy if exists "Anyone can view customer reviews" on public.customer_reviews;
+create policy "Anyone can view customer reviews" on public.customer_reviews
+  for select using (true);
+
+drop policy if exists "Anyone can insert customer reviews" on public.customer_reviews;
+create policy "Anyone can insert customer reviews" on public.customer_reviews
+  for insert with check (true);
