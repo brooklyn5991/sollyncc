@@ -15,15 +15,24 @@ const imageFileInput = document.getElementById('imageFile');
 const imageUrlInput = document.getElementById('imageUrl');
 const imagePreviewBox = document.getElementById('imagePreviewBox');
 const formStatus = document.getElementById('formStatus');
+const loginStatus = document.getElementById('loginStatus');
 const statusMessage = document.getElementById('statusMessage');
 const productList = document.getElementById('productList');
 const resetBtn = document.getElementById('resetBtn');
 const formTitle = document.getElementById('form-title');
 
+const adminEmails = {
+  solcyn: 'solcyn@sollyncc.com',
+  solycn: 'solcyn@sollyncc.com',
+  admin: 'admin@sollyncc.local'
+};
+
 let editingId = null;
 let previewUrl = '';
 
 function setStatus(message, isError = false) {
+  loginStatus.textContent = message;
+  loginStatus.style.color = isError ? '#b91c1c' : '#0f766e';
   statusMessage.textContent = message;
   statusMessage.style.color = isError ? '#b91c1c' : '#0f766e';
   formStatus.textContent = message;
@@ -98,44 +107,37 @@ async function handleLogin(event) {
     return;
   }
 
-  const knownAdmin =
-    (username.toLowerCase() === 'solcyn' && password === 'Uche@75') ||
-    (username.toLowerCase() === 'admin' && password === 'admin123');
-
-  if (knownAdmin) {
-    setAuthenticatedView(true);
-    await loadProducts();
-    setStatus('Signed in successfully.');
-    return;
-  }
-
-  setStatus('Checking admin credentials...');
-
-  const { data: adminUser, error: adminLookupError } = await supabase
-    .from('admin_users')
-    .select('username, email, password')
-    .eq('username', username)
-    .maybeSingle();
-
-  if (adminLookupError) {
-    setStatus(adminLookupError.message, true);
-    return;
-  }
-
-  if (!adminUser || adminUser.password !== password) {
+  const email = adminEmails[username.toLowerCase()];
+  if (!email) {
     setStatus('Invalid admin username or password.', true);
     return;
   }
 
-  const { error } = await supabase.auth.signInWithPassword({ email: adminUser.email, password });
-  if (error) {
-    setStatus(error.message, true);
+  setStatus('Signing in...');
+  let session;
+  try {
+    const { data, error } = await supabase.auth.signInWithPassword({ email, password });
+    if (error) throw error;
+    session = data.session;
+  } catch (error) {
+    setAuthenticatedView(false);
+    setStatus(error.message || 'Unable to sign in to Supabase.', true);
+    return;
+  }
+
+  if (!session) {
+    setAuthenticatedView(false);
+    setStatus('Supabase did not create an admin session. Check the admin Auth user setup.', true);
     return;
   }
 
   setAuthenticatedView(true);
-  await loadProducts();
-  setStatus('Signed in successfully.');
+  try {
+    await loadProducts();
+    setStatus('Signed in successfully.');
+  } catch (error) {
+    setStatus(error.message || 'Signed in, but could not load products.', true);
+  }
 }
 
 async function handleSubmit(event) {
