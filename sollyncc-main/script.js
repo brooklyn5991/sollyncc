@@ -103,6 +103,23 @@ document.addEventListener('DOMContentLoaded', async () => {
     const cartButtons = document.querySelectorAll('.add-to-cart-overlay');
     const cartCountElement = document.querySelector('.cart-count');
 
+    // Initialize navigation before waiting for remote review data.
+    if (navLinks && mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            const isOpen = navLinks.classList.toggle('is-open');
+            mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
+            mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
+        });
+
+        navLinks.querySelectorAll('a').forEach((link) => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+                mobileMenuToggle.setAttribute('aria-expanded', 'false');
+                mobileMenuToggle.setAttribute('aria-label', 'Open menu');
+            });
+        });
+    }
+
     await loadReviews();
 
     const reviewForm = document.getElementById('reviewForm');
@@ -167,23 +184,6 @@ document.addEventListener('DOMContentLoaded', async () => {
     }
     
     let currentCartCount = 0;
-
-    // 1. Mobile navigation
-    if (navLinks && mobileMenuToggle) {
-        mobileMenuToggle.addEventListener('click', () => {
-            const isOpen = navLinks.classList.toggle('is-open');
-            mobileMenuToggle.setAttribute('aria-expanded', String(isOpen));
-            mobileMenuToggle.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu');
-        });
-
-        navLinks.querySelectorAll('a').forEach((link) => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('is-open');
-                mobileMenuToggle.setAttribute('aria-expanded', 'false');
-                mobileMenuToggle.setAttribute('aria-label', 'Open menu');
-            });
-        });
-    }
 
     // 2. Smooth Shrink Header on Scroll
     window.addEventListener('scroll', () => {
